@@ -341,6 +341,11 @@ export interface ChartOptionsBase {
 	 * The pane number to which the series will be attached.
 	 */
 	pane?: number;
+
+	/**
+	 * To configure pane height.
+	 */
+	stretchFactor?: number;
 }
 
 /**
@@ -481,7 +486,7 @@ export class ChartModel<HorzScaleItem> implements IDestroyable, IChartModelBase 
 		this._watermark = new Watermark(this, options.watermark);
 
 		this.createPane();
-		this._panes[0].setStretchFactor(DEFAULT_STRETCH_FACTOR * 2);
+		this._panes[0].setStretchFactor(options.stretchFactor ?? DEFAULT_STRETCH_FACTOR * 2);
 
 		this._backgroundTopColor = this._getBackgroundColor(BackgroundColorSide.Top);
 		this._backgroundBottomColor = this._getBackgroundColor(BackgroundColorSide.Bottom);
