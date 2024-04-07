@@ -336,6 +336,11 @@ export interface ChartOptionsBase {
 	 * Basic localization options
 	 */
 	localization: LocalizationOptionsBase;
+
+	/**
+	 * The pane number to which the series will be attached.
+	 */
+	pane?: number;
 }
 
 /**
